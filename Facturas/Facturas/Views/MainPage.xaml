@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Facturas.Views.MainPage"
+             Title="Facturas">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="filtericon_3x.webp"
+                     Order="Primary"
+                     Priority="0"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>
