@@ -8,4 +8,42 @@
                      Order="Primary"
                      Priority="0"/>
     </ContentPage.ToolbarItems>
+
+    <ListView ItemsSource="{Binding Facturas.facturas}"
+              HasUnevenRows="True"
+              ItemTapped="ListView_ItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="{Binding importeOrdenacion}"
+                               Grid.Column="1"
+                               Grid.RowSpan="2"
+                               HorizontalOptions="EndAndExpand"
+                               VerticalOptions="Center"
+                               Margin="15"/>
+
+                        <Label Text="{Binding fecha}"
+                               HorizontalOptions="Center"
+                               Margin="5"/>
+
+                        <Label Text="{Binding descEstado}"
+                               HorizontalOptions="Center"
+                               Grid.Row="1"
+                               FontSize="Micro"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
