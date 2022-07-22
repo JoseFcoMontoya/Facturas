@@ -26,14 +26,14 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <Label Text="{Binding importeOrdenacion}"
+                        <Label Text="{Binding importeOrdenacion, Converter={StaticResource toMoney}}"
                                Grid.Column="1"
                                Grid.RowSpan="2"
                                HorizontalOptions="EndAndExpand"
                                VerticalOptions="Center"
                                Margin="15"/>
 
-                        <Label Text="{Binding fecha}"
+                        <Label Text="{Binding fecha,Converter={StaticResource toDate}}"
                                HorizontalOptions="Center"
                                Margin="5"/>
 

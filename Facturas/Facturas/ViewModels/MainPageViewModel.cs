@@ -33,7 +33,7 @@ namespace Facturas.ViewModels
 
             var jsonResult = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<FacturasData>(jsonResult);
-
+            
             Facturas = result;
         }
 
