@@ -17,6 +17,8 @@ namespace Facturas.ViewModels
     {
         private FacturasData facturas;
 
+        public bool filtrar { get; set; }
+
         public FacturasData Facturas 
         { 
             get => facturas;
@@ -33,6 +35,12 @@ namespace Facturas.ViewModels
         public MainPageViewModel()
         {
             FiltrarFacturasCommand = new Command(ViewFiltrarFacturar);
+        }
+
+        public MainPageViewModel(bool filtrar)
+        {
+            FiltrarFacturasCommand = new Command(ViewFiltrarFacturar);
+            this.filtrar = filtrar;
         }
 
         public async Task GetFacturasData(string url)

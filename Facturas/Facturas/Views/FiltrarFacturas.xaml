@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Facturas.Views.FiltrarFacturas"
-             Title="Filtrar Facturas">
+             Title="Filtrar Facturas"
+             NavigationPage.HasBackButton="False">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="close_icon.webp"
                      Order="Primary"
-                     Priority="0"/>
+                     Priority="0"
+                     Command="{Binding CancelarFiltrosCommand}"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout Padding="15">

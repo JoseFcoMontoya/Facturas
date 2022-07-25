@@ -11,9 +11,16 @@ namespace Facturas.ViewModels
 {
     public class FiltrarFacturasViewModel : INotifyPropertyChanged
     {
+        public Command CancelarFiltrosCommand { get; set; }
+
         public FiltrarFacturasViewModel()
         {
+            CancelarFiltrosCommand = new Command(CancelarFiltros);
+        }
 
+        private void CancelarFiltros()
+        {
+            Application.Current.MainPage.Navigation.PopToRootAsync();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

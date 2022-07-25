@@ -1,4 +1,5 @@
-﻿using Facturas.ViewModels;
+﻿using Facturas.Models;
+using Facturas.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,13 @@ namespace Facturas.Views
         {
             InitializeComponent();
             mainPageViewModel = new MainPageViewModel();
+            BindingContext = mainPageViewModel;
+        }
+
+        public MainPage(bool filtrar)
+        {
+            InitializeComponent();
+            mainPageViewModel = new MainPageViewModel(filtrar);
             BindingContext = mainPageViewModel;
         }
 
