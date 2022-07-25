@@ -6,7 +6,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="filtericon_3x.webp"
                      Order="Primary"
-                     Priority="0"/>
+                     Priority="0"
+                     Command="{Binding FiltrarFacturasCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ListView ItemsSource="{Binding Facturas.facturas}"

@@ -1,4 +1,5 @@
 ﻿using Facturas.Models;
+using Facturas.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,8 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Facturas.ViewModels
 {
@@ -22,6 +25,14 @@ namespace Facturas.ViewModels
                 facturas = value;
                 OnPropertyChanged();
             }
+        }
+
+        public Command FiltrarFacturasCommand { get; set; }
+
+        
+        public MainPageViewModel()
+        {
+            FiltrarFacturasCommand = new Command(ViewFiltrarFacturar);
         }
 
         public async Task GetFacturasData(string url)
@@ -42,6 +53,11 @@ namespace Facturas.ViewModels
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void ViewFiltrarFacturar()
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new FiltrarFacturas());
         }
     }
 }

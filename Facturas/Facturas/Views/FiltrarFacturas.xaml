@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Facturas.Views.FiltrarFacturas"
+             Title="Filtrar Facturas">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="close_icon.webp"
+                     Order="Primary"
+                     Priority="0"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="15">
+        <Label Text="Con fecha de emisión"
+               FontAttributes="Bold"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <StackLayout>
+                <Label Text="Desde:"/>
+                <DatePicker x:Name="dpDeste"/>
+            </StackLayout>
+            
+            <StackLayout Grid.Column="1">
+                <Label Text="Hasta:"/>
+                <DatePicker x:Name="dpHasta"/>
+            </StackLayout>
+        </Grid>
+        
+        <Label Text="Por un importe"
+               FontAttributes="Bold"
+               Margin="0, 15, 0, 0"/>
+        <Label x:Name="lblImporte"
+               TextColor="#95bb4e"
+               FontSize="Medium"
+               HorizontalOptions="Center"
+               Margin="0, 15, 0, 10"/>
+        <Slider x:Name="sDinero" 
+                Minimum="0"
+                Maximum="100"
+                ThumbColor="#95bb4e"
+                MinimumTrackColor="#95bb4e"
+                MaximumTrackColor="#95bb4e"
+                Value="0"
+                ValueChanged="CambiarDineroMaximo"/>
+
+        <Label Text="Por estado"
+               FontAttributes="Bold"
+               Margin="0, 15, 0, 0"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox x:Name="cbPagadas"/>
+            <CheckBox Grid.Row="1"
+                      x:Name="cbAnuladas"/>
+            <CheckBox Grid.Row="2"
+                      x:Name="cbCuotaFija"/>
+            <CheckBox Grid.Row="3"
+                      x:Name="cbPendientesPago"/>
+            <CheckBox Grid.Row="4"
+                      x:Name="cbPlanPago"/>
+            <Label Text="Pagadas"
+                   Grid.Column="1"
+                   VerticalOptions="Center"/>
+            <Label Text="Anuladas"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   VerticalOptions="Center"/>
+            <Label Text="Cuota Fija"
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   VerticalOptions="Center"/>
+            <Label Text="Pendientes de pago"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   VerticalOptions="Center"/>
+            <Label Text="Plan de pago"
+                   Grid.Column="1"
+                   Grid.Row="4"
+                   VerticalOptions="Center"/>
+        </Grid>
+
+        <Button Text="Aplicar"
+                BackgroundColor="#95bb4e"
+                CornerRadius="45"
+                Margin="15, 15, 15, 0"
+                TextColor="White"
+                x:Name="btnAplicar"
+                Clicked="AplicarFiltros"/>
+        <Button Text="Eliminar Filtros"
+                BackgroundColor="Gray"
+                CornerRadius="45"
+                Margin="15, 0, 15, 15"
+                x:Name="btnEliminarFiltros"
+                Clicked="EliminarFiltros"/>
+    </StackLayout>
+</ContentPage>
