@@ -18,9 +18,9 @@ namespace Facturas.ViewModels
             CancelarFiltrosCommand = new Command(CancelarFiltros);
         }
 
-        private void CancelarFiltros()
+        private async void CancelarFiltros()
         {
-            Application.Current.MainPage.Navigation.PopToRootAsync();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

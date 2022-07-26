@@ -1,4 +1,5 @@
-﻿using Facturas.Models;
+﻿using Facturas.Class;
+using Facturas.Models;
 using Facturas.ViewModels;
 using System;
 using System.Collections.Generic;

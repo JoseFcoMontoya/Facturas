@@ -14,5 +14,6 @@ namespace Facturas.Class
         public static bool cuotaFija { get; set; }
         public static bool pendientesPago { get; set; }
         public static bool planPago { get; set; }
+        public static bool entradaAplicacion { get; set; } = true;
     }
 }

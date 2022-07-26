@@ -23,6 +23,24 @@ namespace Facturas.Views
             lblImporte.Text = 0.ToString("C");
         }
 
+        public FiltrarFacturas(DateTime fechaDesde, DateTime fechaHasta, float dineroMaximo, bool pagadas, bool anuladas, bool cuotaFija, bool pedientesPago, bool planPago)
+        {
+            InitializeComponent();
+            filtrarFacturasViewModel = new FiltrarFacturasViewModel();
+            BindingContext = filtrarFacturasViewModel;
+
+            dpDesde.Date = fechaDesde;
+            dpHasta.Date = fechaHasta;
+
+            sDinero.Value = dineroMaximo;
+
+            cbPagadas.IsChecked = pagadas;
+            cbAnuladas.IsChecked = anuladas;
+            cbCuotaFija.IsChecked = cuotaFija;
+            cbPendientesPago.IsChecked = pedientesPago;
+            cbPlanPago.IsChecked = planPago;
+        }
+
         private void CambiarDineroMaximo(object sender, ValueChangedEventArgs e)
         {
             lblImporte.Text = e.NewValue.ToString("C");
@@ -30,7 +48,7 @@ namespace Facturas.Views
 
         private async void AplicarFiltros(object sender, EventArgs e)
         {
-            Datas.fechaDesde = dpDeste.Date;
+            Datas.fechaDesde = dpDesde.Date;
             Datas.fechaHasta = dpHasta.Date;
             Datas.dineroMaximo = (float) sDinero.Value;
             Datas.pagadas = cbPagadas.IsChecked;
@@ -44,7 +62,7 @@ namespace Facturas.Views
 
         private void EliminarFiltros(object sender, EventArgs e)
         {
-            dpDeste.Date = DateTime.Now;
+            dpDesde.Date = DateTime.Now;
             dpHasta.Date = DateTime.Now;
 
             sDinero.Value = 0;

@@ -11,41 +11,52 @@
                      Command="{Binding FiltrarFacturasCommand}"/>
     </ContentPage.ToolbarItems>
 
-    <ListView ItemsSource="{Binding Facturas.facturas}"
-              HasUnevenRows="True"
-              ItemTapped="ListView_ItemTapped">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+    <StackLayout>
+        <ListView ItemsSource="{Binding Facturas.facturas}"
+                  HasUnevenRows="True"
+                  ItemTapped="ListView_ItemTapped"
+                  IsVisible="{Binding ListaFacturasVisible}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
 
-                        <Label Text="{Binding importeOrdenacion, Converter={StaticResource toMoney}}"
-                               Grid.Column="1"
-                               Grid.RowSpan="2"
-                               HorizontalOptions="EndAndExpand"
-                               VerticalOptions="Center"
-                               Margin="15"/>
+                            <Label Text="{Binding importeOrdenacion, Converter={StaticResource toMoney}}"
+                                   Grid.Column="1"
+                                   Grid.RowSpan="2"
+                                   HorizontalOptions="EndAndExpand"
+                                   VerticalOptions="Center"
+                                   Margin="15"/>
 
-                        <Label Text="{Binding fecha,Converter={StaticResource toDate}}"
-                               HorizontalOptions="Center"
-                               Margin="5"/>
+                            <Label Text="{Binding fecha,Converter={StaticResource toDate}}"
+                                   HorizontalOptions="Center"
+                                   Margin="5"/>
 
-                        <Label Text="{Binding descEstado}"
-                               HorizontalOptions="Center"
-                               Grid.Row="1"
-                               FontSize="Micro"/>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                            <Label Text="{Binding descEstado}"
+                                   HorizontalOptions="Center"
+                                   Grid.Row="1"
+                                   FontSize="Micro"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Text="{Binding FacturasNoEncontradas}"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="CenterAndExpand"
+               TextColor="DarkRed"
+               FontSize="Large"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"/>
+    </StackLayout>
 </ContentPage>

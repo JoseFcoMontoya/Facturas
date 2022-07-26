@@ -22,12 +22,13 @@
             
             <StackLayout>
                 <Label Text="Desde:"/>
-                <DatePicker x:Name="dpDeste"/>
+                <DatePicker x:Name="dpDesde"/>
             </StackLayout>
             
             <StackLayout Grid.Column="1">
                 <Label Text="Hasta:"/>
-                <DatePicker x:Name="dpHasta"/>
+                <DatePicker x:Name="dpHasta"
+                            MinimumDate="{Binding Source={x:Reference dpDesde}, Path=Date}"/> 
             </StackLayout>
         </Grid>
         
