@@ -1,4 +1,5 @@
-﻿using Facturas.ViewModels;
+﻿using Facturas.Class;
+using Facturas.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +28,18 @@ namespace Facturas.Views
             lblImporte.Text = e.NewValue.ToString("C");
         }
 
-        private void AplicarFiltros(object sender, EventArgs e)
+        private async void AplicarFiltros(object sender, EventArgs e)
         {
+            Datas.fechaDesde = dpDeste.Date;
+            Datas.fechaHasta = dpHasta.Date;
+            Datas.dineroMaximo = (float) sDinero.Value;
+            Datas.pagadas = cbPagadas.IsChecked;
+            Datas.anuladas = cbAnuladas.IsChecked;
+            Datas.cuotaFija = cbCuotaFija.IsChecked;
+            Datas.pendientesPago = cbPendientesPago.IsChecked;
+            Datas.planPago = cbPlanPago.IsChecked;
 
+            await Application.Current.MainPage.Navigation.PushAsync(new MainPage(true));
         }
 
         private void EliminarFiltros(object sender, EventArgs e)

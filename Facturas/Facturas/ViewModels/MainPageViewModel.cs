@@ -52,8 +52,20 @@ namespace Facturas.ViewModels
 
             var jsonResult = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<FacturasData>(jsonResult);
+
+            if (!filtrar)
+            {
+                Facturas = result;
+            }
+            else
+            {
+                //List<Factura> facturas = new List<Factura>();
+
+                
+
+                //Facturas.facturas = facturas.ToArray();
+            }
             
-            Facturas = result;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -63,9 +75,9 @@ namespace Facturas.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void ViewFiltrarFacturar()
+        private async void ViewFiltrarFacturar()
         {
-            Application.Current.MainPage.Navigation.PushAsync(new FiltrarFacturas());
+            await Application.Current.MainPage.Navigation.PushAsync(new FiltrarFacturas());
         }
     }
 }
