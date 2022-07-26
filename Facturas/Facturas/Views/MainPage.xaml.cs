@@ -36,7 +36,7 @@ namespace Facturas.Views
             await mainPageViewModel.GetFacturasData(url);
         }
 
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void AlertaClickCeltaListView(object sender, ItemTappedEventArgs e)
         {
             DisplayAlert("Información", "Esta funcionalidad aún no está disponible", "Cerrar");
         }

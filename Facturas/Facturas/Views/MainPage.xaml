@@ -14,7 +14,7 @@
     <StackLayout>
         <ListView ItemsSource="{Binding Facturas.facturas}"
                   HasUnevenRows="True"
-                  ItemTapped="ListView_ItemTapped"
+                  ItemTapped="AlertaClickCeltaListView"
                   IsVisible="{Binding ListaFacturasVisible}">
             <ListView.ItemTemplate>
                 <DataTemplate>

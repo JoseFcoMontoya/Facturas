@@ -69,7 +69,9 @@ namespace Facturas.ViewModels
         public async Task GetFacturasData(string url)
         {
             ListaFacturasVisible = true;
-
+            /*
+             * Se extraen los datos en formato json y luego se convierten a la clase de FacturasData para poder trabajar con ellos
+             */
             var client = new HttpClient();
 
             var response = await client.GetAsync(url);
@@ -86,7 +88,12 @@ namespace Facturas.ViewModels
             else
             {
                 List<Factura> facturas = new List<Factura>();
-
+                /*
+                 * Se va recorriendo cada una de las facturas que se obtienen, para ser comprobadas segun el filtro
+                 * y si pasan el filtro se pasan a una lista. 
+                 * Cuando no queden facturas por comprobar se mostrara un mensaje si no hay facturas que mostrar o
+                 * la lista de las facturas que han pasado el filtro
+                 */
                 foreach (Factura factura in result.facturas)
                 {
                     int dia = int.Parse(factura.fecha.Substring(0, factura.fecha.IndexOf("/")));
@@ -189,6 +196,7 @@ namespace Facturas.ViewModels
 
         private async void ViewFiltrarFacturar()
         {
+            //Comprueba si la aplicacion se ha arrando ya ha arrancado por primera la pagina de filtras facturas, para carga la configuracion guardada
             if (Datas.entradaAplicacion)
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new FiltrarFacturas());

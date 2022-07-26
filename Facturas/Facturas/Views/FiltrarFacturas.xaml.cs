@@ -22,7 +22,7 @@ namespace Facturas.Views
             BindingContext = filtrarFacturasViewModel;
             lblImporte.Text = 0.ToString("C");
         }
-
+        //Carga la configuracion de los filtros guardados
         public FiltrarFacturas(DateTime fechaDesde, DateTime fechaHasta, float dineroMaximo, bool pagadas, bool anuladas, bool cuotaFija, bool pedientesPago, bool planPago)
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace Facturas.Views
         {
             lblImporte.Text = e.NewValue.ToString("C");
         }
-
+        //Guarda los filtros y carga la pagina con los filtros previamente guardados
         private async void AplicarFiltros(object sender, EventArgs e)
         {
             Datas.fechaDesde = dpDesde.Date;
@@ -59,7 +59,7 @@ namespace Facturas.Views
 
             await Application.Current.MainPage.Navigation.PushAsync(new MainPage(true));
         }
-
+        //Restablece los filtros a por defecto
         private void EliminarFiltros(object sender, EventArgs e)
         {
             dpDesde.Date = DateTime.Now;
@@ -68,9 +68,9 @@ namespace Facturas.Views
             sDinero.Value = 0;
 
             cbPagadas.IsChecked = false;
-            cbAnuladas.IsChecked = false; ;
-            cbCuotaFija.IsChecked = false; ;
-            cbPendientesPago.IsChecked = false; ;
+            cbAnuladas.IsChecked = false;
+            cbCuotaFija.IsChecked = false;
+            cbPendientesPago.IsChecked = false;
             cbPlanPago.IsChecked = false;
         }
     }
